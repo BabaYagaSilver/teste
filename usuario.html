@@ -1,0 +1,536 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br" ng-app>
+<head>
+
+    <title>INBRAEP</title>
+
+    
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://inbraep.online/third_party/bootstrap/css/bootstrap.min.css">
+
+    <link href="https://inbraep.online/third_party/css.css" rel="stylesheet" type="text/css">
+    <link href="https://inbraep.online/third_party/print.css" rel="stylesheet" type="text/css" media="print">
+    <link href="https://inbraep.online/third_party/chosen/chosen.css" rel="stylesheet" type="text/css">
+    <link href="https://inbraep.online/uploadify/uploadify.css" rel="stylesheet" type="text/css">
+    <link href="https://inbraep.online/favicon.ico" rel="shortcut icon">
+
+    <meta name="facebook-domain-verification" content="xrxj49yqzok1gxr8wlek8fmc02eosj"/>
+
+            <style type="text/css">
+            @media screen and (max-device-width: 760px) {
+                img {
+                    width: 50% !important;
+                    height: auto !important;
+                }
+
+                #logo-institucional {
+                    width: 175% !important;
+                }
+
+                #logos {
+                    margin: 10px;
+                }
+
+                #usuario_administrador {
+                    font-size: 30px !important;
+                }
+
+                #trocar_usuario {
+                    font-size: 35px !important;
+                    font-size: 40px !important;
+                }
+
+                #sair-do-sistema {
+                    font-size: 30px !important;
+                }
+
+                .icone {
+                    width: 48%;
+                    height: 350px;
+                }
+
+                .icone span {
+                    font-size: 40px;
+                }
+
+                .float-right {
+                    float: none !important;
+                }
+
+                .text-muted {
+                    line-height: 80px !important;
+                    font-size: 40px !important;
+                }
+
+                .panel-danger {
+                    font-size: 45px !important;
+                    margin-right: 10% !important;
+                }
+
+                .notificacao_duvidas {
+                    font-size: 40px !important;
+                }
+
+                .texto {
+                    font-size: 30px;
+                    line-height: initial;
+                    width: 200%;
+                    display: inline-block;
+                }
+
+                .panel {
+                    padding-right: 50% !important;
+                    line-height: 10px;
+                    float: none !important;
+                }
+
+            
+                @media screen and (max-device-width: 760px) and (orientation: landscape) {
+                    .icone {
+                        width: 23%;
+                        height: 205px;
+                    }
+
+                    .icone span {
+                        font-size: 23px;
+                    }
+                }
+            }
+        </style>
+        <script>
+      (function (w, d, t, r, u) {
+        var f, n, i;
+        w[u] = w[u] || [], f = function () {
+          var o = {ti: "26014901"};
+          o.q = w[u], w[u] = new UET(o), w[u].push("pageLoad")
+        }, n = d.createElement(t), n.src = r, n.async = 1, n.onload = n.onreadystatechange = function () {
+          var s = this.readyState;
+          s && s !== "loaded" && s !== "complete" || (f(), n.onload = n.onreadystatechange = null)
+        }, i = d.getElementsByTagName(t)[0], i.parentNode.insertBefore(n, i)
+      })(window, document, "script", "//bat.bing.com/bat.js", "uetq");
+    </script>
+    <script type="text/javascript" src="https://inbraep.online/third_party/jquery.js"></script>
+    <link href="https://inbraep.online/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+
+      var base_url = 'https://inbraep.online/';
+
+      $(document).ready(function () {
+          
+        if ($('.exportar_informacoes').length) {
+          $('body').append('<form action="https://inbraep.online/index.php/exportar/planilha" method="post" id="exportar_informacoes" style="display: none;"><input name="dados" type="hidden"></form>');
+        }
+
+        $('.exportar_informacoes').on('change', function () {
+          $('#exportar_informacoes').find('input').val('<table>' + $(this).parents('p').next().html() + '</table>').end().submit();
+
+          $(this).val('');
+        });
+
+          
+                });
+
+      function validar_tecla (e) {
+        if (e.keyCode == 17) {
+          alert('Não é permitido copiar o conteúdo deste site.');
+          return false;
+        } else {
+          return true;
+        }
+      }
+    </script>
+
+    <meta name="google-site-verification" content="UA-22698050-1"/>
+
+    
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-N8V83XS');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Global site tag (gtag.js) - Google Ads: 973713299 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-973713299"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag () {
+        dataLayer.push(arguments);
+      }
+
+      gtag('js', new Date());
+      gtag('config', 'AW-973713299');
+    </script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-22698050-1"></script>
+     <script>
+         window.dataLayer = window.dataLayer || [];
+
+         function gtag () {
+             dataLayer.push(arguments);
+         }
+
+         gtag('js', new Date());
+         gtag('config', 'UA-22698050-1');
+         gtag('config', 'AW-973713299');
+     </script>-->
+
+    <style>
+
+        table.sortable thead {
+            cursor: pointer;
+        }
+
+        input[type=date] {
+            line-height: 18px;
+        }
+
+        footer {
+            background: #eee;
+            border-top: 1px solid #ddd;
+            bottom: 0;
+            color: #555;
+            font-size: 10px;
+            padding: 5px;
+            position: fixed;
+            width: 100%;
+        }
+
+    </style>
+
+            <style>
+            #conteudo {
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+        </style>
+        <script type="text/javascript">
+          document.addEventListener('contextmenu', event => event.preventDefault());
+        </script>
+    
+    <script src='https://www.google.com/recaptcha/api.js?hl=pt-BR'></script>
+
+</head>
+
+<body
+        >
+
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N8V83XS"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<h1 id="h1" class="no-print" style="margin: 0;">
+    <div id="logos" style="float: left;">
+        <img id="logo-institucional" src="/third_party/imagens/logo-institucional.png">
+        <div class="menu-mobile" style="display: none;"><a href="https://inbraep.com.br" style="color: #333"><i
+                        class="fas fa-bars" style="font-size: 60px !important;"></i></a></div>
+    </div>
+
+    <div class="float-right" style="float: right;">
+        <!-- Informações da Empresa -->
+
+        <div class="float-right" style="float: right;">
+            
+                
+                <div class="panel panel-info no-print"
+                     style="float: right; margin: 0; font-size: 10px; line-height: 10px;">
+                    
+                    <div class="panel-body" style="padding: 10px;">
+                        
+                            <a class="btn btn-default btn-xs" id="sair-do-sistema"
+                               href="https://inbraep.online/index.php/sistema/sair"><span
+                                        class="glyphicon glyphicon-off"></span> Sair do Sistema</a>
+
+                        
+                        <br><br>
+
+                        
+                        
+                        
+                            <span class="text-muted">Usuário</span><br><span
+                                    class="texto">VINICIUS RODRIGUES SIQUEIRA DE SOUZA - CPF 500.687.388-46</span>
+
+                        
+                        
+                                                </div>
+                </div>
+
+                    </div>
+
+        <!-- Logo da Empresa -->
+
+        <div class="float-right" style="float: right;">
+                    </div>
+
+        <div style="clear: both;"></div>
+    </div>
+
+    <div style="clear: both;"></div>
+</h1>
+
+
+<div id="conteudo">
+
+    
+        
+        
+    
+    
+        
+            
+                
+                <div class="icone">
+                    <a data-tooltip="Clique aqui para comprar cursos." href="https://inbraep.online/index.php/comprar_cursos">
+                        <img src="https://inbraep.online/third_party/imagens/carrinho_de_compras.png">
+                        <span>Comprar Cursos</span>
+                    </a>
+                </div>
+
+                
+                
+                
+                <div class="icone">
+                    <a data-tooltip="Clique aqui para entrar no ambiente de ensino."
+                       href="https://inbraep.online/index.php/ambiente_de_ensino">
+                        <img src="https://inbraep.online/third_party/imagens/caderno.png">
+                        <span>Ambiente de Ensino</span>
+                    </a>
+                </div>
+
+                
+                
+                <div class="icone">
+                    <a data-tooltip="Clique aqui para realizar solicitações." href="https://inbraep.online/index.php/solicitacoes">
+                        <img src="https://inbraep.online/third_party/imagens/solicitacoes.png">
+                        <span>Solicitações</span>
+                    </a>
+                </div>
+
+                <div class="icone">
+                    <a data-tooltip="Clique aqui para acessar configurações avançadas."
+                       href="https://inbraep.online/index.php/configuracoes">
+                        <img src="https://inbraep.online/third_party/imagens/engrenagem.png">
+                        <span>Configurações</span>
+                    </a>
+                </div>
+
+                
+            
+            <div class="icone">
+                <a type="button" href="https://inbraep.online/index.php/tirar_duvidas" class="btn-sm btn-danger notificacao_duvidas"
+                   style="display: none;"></a>
+                <a data-tooltip="Clique aqui para tirar suas dúvidas." href="https://inbraep.online/index.php/tirar_duvidas">
+                    <img src="https://inbraep.online/third_party/imagens/ajuda.png">
+                    <span>Tirar Dúvidas</span>
+                </a>
+            </div>
+
+        
+        <div class="icone">
+            <a data-tooltip="Clique aqui para sair do sistema." href="https://inbraep.online/index.php/sistema/sair">
+                <img src="https://inbraep.online/third_party/imagens/logout.png">
+                <span>Sair do Sistema</span>
+            </a>
+        </div>
+
+        <div style="clear: both;"></div>
+
+    </div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<footer>AVAPRO - AMBIENTE VIRTUAL DE APRENDIZAGEM PROFISSIONAL LTDA | 36.997.283/0001-35</footer>-->
+
+<div id="panel-bottom" style="padding-right: 50% !important;"></div>
+
+<!-- Scripts -->
+
+<script src="https://inbraep.online/third_party/sortable.js"></script>
+<script type="text/javascript" src="https://inbraep.online/third_party/chosen/chosen.jquery.min.js"></script>
+<script type="text/javascript" src="https://inbraep.online/third_party/lightbox_me.js"></script>
+<script type="text/javascript" src="https://inbraep.online/third_party/js.js"></script>
+<script type="text/javascript" src="https://inbraep.online/third_party/meiomask.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script type="text/javascript" src="https://inbraep.online/third_party/php.js"></script>
+<script type="text/javascript" src="https://inbraep.online/uploadify/jquery.uploadify.min.js"></script>
+<script type="text/javascript" src="https://inbraep.online/third_party/bootbox.js"></script>
+
+<script type="text/javascript" src="https://inbraep.online/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://inbraep.online/jquery-ui/jquery.ui.datepicker-pt-BR.min.js"></script>
+<script type="text/javascript" src="https://inbraep.online/jquery-ui/jquery.ui.core.js"></script>
+<script type="text/javascript" src="https://inbraep.online/jquery-ui/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="https://inbraep.online/jquery-ui/jquery.ui.position.js"></script>
+<script type="text/javascript" src="https://inbraep.online/jquery-ui/jquery.ui.autocomplete.js"></script>
+
+<script src="https://inbraep.online/third_party/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment-with-locales.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/accounting.js/0.4.1/accounting.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.min.js"></script>
+<script src="https://inbraep.online/third_party/JSXTransformer.js"></script>
+
+
+<script>
+
+  $(".icone").each(function () {
+
+    var src = $(this).find('a').find('img').attr('src');
+    if (
+      src.includes('logout') ||
+      src.includes('home') ||
+      src.includes('voltar') ||
+      src.includes('esocial') ||
+      src.includes('cracha') ||
+      src.includes('carrinho')
+    ) {
+      $(this).addClass('no-print');
+    }
+
+  });
+</script>
+
+
+    <script>
+
+      var apiURL = "https://api.treinamento.online/old-user-api-has-course-in-newapi";
+      var siteURL = "https://inbraep.treinamento.online/waiting/";
+
+      var idDoUsuario = "85152";
+      var nomeDeUsuario = "EULOLBRABO";
+      var tipoUsuario = "u";
+      var tipoPessoa = "pessoa_fisica";
+
+      var linkNovoSistema = $('a[data-tooltip="Clique aqui para sair do sistema."]').first().parent();
+      let avaproVerification = window.localStorage.getItem('avapro');
+
+      // Criar botão de acesso ao sistema avapro
+      function createAvaproButton (response, url) {
+
+        var siteURL = url + window.btoa(JSON.stringify({
+          token: response.token,
+          type: 'auth',
+          username: nomeDeUsuario,
+          user_id: idDoUsuario,
+          user_type: tipoUsuario
+        }));
+
+        $(".icone-migracao").remove();
+
+        var iconeNovoSistema = '<div class="icone icone-migracao">' +
+          '<a title="Nova plataforma para os cursos NR06 e NR12" target="_blank" href="' + siteURL + '">';
+
+        if (response.usuario_responsavel) {
+          iconeNovoSistema += '<img src="https://inbraep.online/uploads/images/avapro-icone.png"><span>SISTEMA NOVO</span></a></div>';
+        } else {
+          iconeNovoSistema += '<img src="https://inbraep.online/uploads/images/avapro-icone.png"><span>Acesso ao Curso</span></a></div>';
+        }
+
+        if (tipoPessoa === 'pessoa_juridica') {
+
+          linkNovoSistema.after(iconeNovoSistema);
+
+        } else {
+
+          $(".erro-cursos").addClass('hide');
+          $(".cursos").append(iconeNovoSistema);
+
+        }
+
+      }
+
+      function startMigration () {
+
+        $.ajax({
+          url: apiURL,
+          contentType: "application/json; charset=utf-8",
+          dataType: "json",
+          type: "get",
+          data: {token: "ODUxNTI6dQ=="},
+          success: function (response) {
+
+            window.localStorage.setItem('avapro', JSON.stringify(response))
+
+            $('.link-compra-novo').removeAttr('disabled')
+
+            if (response.tem_usuario) {
+              if (response.usuario_responsavel) {
+
+                createAvaproButton(response, siteURL)
+
+              } else {
+
+                if (response.tem_curso) {
+
+                  createAvaproButton(response, siteURL)
+
+                } else {
+
+                  $(".icone-migracao").remove();
+
+                }
+              }
+            } else {
+              $(".icone-migracao").remove();
+            }
+
+          },
+          error: function () {
+            $(".icone-migracao").remove();
+            $('.link-compra-novo').attr('href', '#');
+            $('.link-compra-novo').attr('disabled', true)
+            $(".erro-cursos").removeClass('hide');
+            if (dev === 'true') {
+              alert('Erro na migração.');
+            }
+          }
+        });
+
+      }
+
+      startMigration();
+
+      // -----------------------
+    </script>
+
+
+</body>
+</html>
